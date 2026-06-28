@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="background-orb orb-one"></div>
+    <div class="background-orb orb-two"></div>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Global finance • Live rates</p>
+          <h1>Currency Converter</h1>
+        </div>
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle theme">
+          🌙
+        </button>
+      </header>
+
+      <section class="hero-card">
+        <div class="hero-content">
+          <h2>Convert any world currency in seconds</h2>
+          <p>
+            Explore live exchange rates, save your favorite pairs, and monitor your conversion history in a polished fintech workspace.
+          </p>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-pill">150+ currencies</div>
+          <div class="stat-pill">Live API rates</div>
+          <div class="stat-pill">Offline history</div>
+        </div>
+      </section>
+
+      <main class="dashboard-grid">
+        <section class="converter-card">
+          <form id="converterForm" novalidate>
+            <div class="input-group">
+              <label for="amount">Amount</label>
+              <input id="amount" type="number" min="0.01" step="0.01" placeholder="Enter amount" required />
+            </div>
+
+            <div class="pair-grid">
+              <div class="currency-field">
+                <label for="baseCurrency">From</label>
+                <div class="select-shell">
+                  <label class="sr-only" for="baseSearch">Search base currency</label>
+                  <input id="baseSearch" class="currency-search" type="text" placeholder="Search currency" />
+                  <select id="baseCurrency"></select>
+                </div>
+              </div>
+
+              <div class="currency-field">
+                <label for="targetCurrency">To</label>
+                <div class="select-shell">
+                  <label class="sr-only" for="targetSearch">Search target currency</label>
+                  <input id="targetSearch" class="currency-search" type="text" placeholder="Search currency" />
+                  <select id="targetCurrency"></select>
+                </div>
+              </div>
+            </div>
+
+            <div class="action-row">
+              <button id="convertBtn" class="btn btn-primary" type="submit">Convert</button>
+              <button id="swapBtn" class="btn btn-secondary" type="button">⇄ Swap</button>
+              <button id="resetBtn" class="btn btn-tertiary" type="button">↺ Reset</button>
+            </div>
+
+            <output id="validationMessage" class="validation-message" aria-live="polite"></output>
+          </form>
+        </section>
+
+        <section class="results-stack">
+          <article class="info-card">
+            <div class="card-header">
+              <h3>Exchange Rate</h3>
+            </div>
+            <div id="rateDisplay" class="rate-display">--</div>
+            <p id="rateUpdatedText" class="meta-line">Last updated: syncing…</p>
+          </article>
+
+          <article class="info-card result-card">
+            <div class="card-header">
+              <h3>Converted Result</h3>
+            </div>
+            <div id="resultDisplay" class="result-display">--</div>
+            <div class="result-actions">
+              <button id="copyBtn" class="btn btn-ghost" type="button">Copy Result</button>
+            </div>
+          </article>
+        </section>
+      </main>
+
+      <section class="secondary-grid">
+        <section class="panel">
+          <div class="panel-header">
+            <h3>Recent Conversion History</h3>
+          </div>
+          <ul id="historyList" class="history-list"></ul>
+        </section>
+
+        <section class="panel">
+          <div class="panel-header">
+            <h3>Favorite Pairs</h3>
+          </div>
+          <div id="favoritePairs" class="favorite-pairs"></div>
+        </section>
+      </section>
+
+      <footer class="footer">
+        <p>Powered by Frankfurter API • Built with HTML, CSS, JavaScript, and Java OOP</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
